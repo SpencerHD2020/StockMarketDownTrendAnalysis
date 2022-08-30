@@ -23,6 +23,9 @@ PRICE_ENUM = {
     "low": "3. low",
     "close": "4. close"
 }
+TICKR_SYM = "AAPL"
+if len(sys.argv) > 1:
+    TICKR_SYM = sys.argv[1]
 
 
 def getStockData(symbol):
@@ -159,7 +162,7 @@ def analyzeVolumeOnDownTrends(symbol):
     return downTrends
 
 
-appleDownTrends = analyzeVolumeOnDownTrends("AAPL")
+appleDownTrends = analyzeVolumeOnDownTrends(TICKR_SYM)
 for trend in appleDownTrends:
     print("*" * 55)
     print(f"This trend lasted {trend.trendLength} days")
